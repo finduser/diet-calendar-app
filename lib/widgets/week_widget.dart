@@ -1,6 +1,7 @@
+import 'package:dietcalendarapp/widgets/day_widget.dart';
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatelessWidget {
+class Week extends StatelessWidget {
   static const daysOfWeek = [
     'Monday',
     'Tuesday',
@@ -11,7 +12,7 @@ class HomeScreen extends StatelessWidget {
     'Sunday'
   ];
 
-  const HomeScreen({Key? key}) : super(key: key);
+  const Week({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,12 +23,16 @@ class HomeScreen extends StatelessWidget {
           height: MediaQuery.of(context).size.height - 200,
           margin: const EdgeInsets.all(100),
           color: Colors.amber,
-          child: Column(
-              children: daysOfWeek.map(
-            (element) {
-              return Text(element);
-            },
-          ).toList()),
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: daysOfWeek.map(
+                  (element) {
+                    return Day(element);
+                  },
+                ).toList()),
+          ),
         )
       ]),
     );

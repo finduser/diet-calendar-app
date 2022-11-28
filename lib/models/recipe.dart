@@ -1,0 +1,6 @@
+/// Represents a
+///
+class Recipe {
+
+
+}
