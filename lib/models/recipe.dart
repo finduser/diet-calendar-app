@@ -1,6 +1,0 @@
-/// Represents a
-///
-class Recipe {
-
-
-}

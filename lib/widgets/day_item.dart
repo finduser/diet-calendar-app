@@ -1,13 +1,24 @@
+import 'package:dietcalendarapp/models/day.dart';
 import 'package:dietcalendarapp/widgets/meal_item.dart';
 import 'package:flutter/material.dart';
 
 import '../models/meal.dart';
 
-class Day extends StatelessWidget {
-  String dayName;
-  List<Meal> meals = [Meal('Zapiekana owsianka', 502), Meal('Chili con carne', 900), Meal('Salatka', 300), Meal('Dupa', 1200)];
+class DayItem extends StatelessWidget {
+  static const daysOfWeek = [
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday',
+    'Sunday'
+  ];
 
-  Day(this.dayName);
+  Day day;
+
+
+  DayItem(this.day);
 
   @override
   Widget build(BuildContext context) {
@@ -25,9 +36,9 @@ class Day extends StatelessWidget {
                 border: Border.all(color: Colors.red),
               ),
               child: Text(
-                dayName,
+                daysOfWeek[day.date.weekday-1],
               )),
-          ...meals.map((e) => MealItem(e.name, e.calories)).toList(),
+          ...day.meals.map((e) => MealItem(e.name, e.calories)).toList(),
         ],
       ),
     );

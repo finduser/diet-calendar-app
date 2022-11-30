@@ -1,18 +1,9 @@
-import 'package:dietcalendarapp/widgets/day_widget.dart';
+import 'package:dietcalendarapp/dummy_data.dart';
+import 'package:dietcalendarapp/widgets/day_item.dart';
 import 'package:flutter/material.dart';
 
-class Week extends StatelessWidget {
-  static const daysOfWeek = [
-    'Monday',
-    'Tuesday',
-    'Wednesday',
-    'Thursday',
-    'Friday',
-    'Saturday',
-    'Sunday'
-  ];
-
-  const Week({Key? key}) : super(key: key);
+class WeekItem extends StatelessWidget {
+  const WeekItem({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -27,9 +18,9 @@ class Week extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: daysOfWeek.map(
+                children: dummyData[0].days.map(
                   (element) {
-                    return Day(element);
+                    return DayItem(element);
                   },
                 ).toList()),
           ),
